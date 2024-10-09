@@ -13,6 +13,7 @@ This project provides a web-based interface for running protein structure predic
 - Open OnDemand 3.1 support
 - ESM-Fold integration
 - OpenFold integration
+- Chai-1 integration
 
 ## Installation
 Clone this repository into your Open OnDemand apps directory:
@@ -38,7 +39,7 @@ The following paths need to be configured in the `alphafold.sh` script:
   - UniProt
   - PDB seqres
   - UniRef30
-  - BFD (Big Fantastic Database)
+  - BFD
   These databases are required for AlphaFold's operation and are common across all AlphaFold runs.
 
 - `GROUP_BASE`: Group base path. This contains:
@@ -65,4 +66,4 @@ This project utilizes AlphaFold, developed by DeepMind Technologies Limited.
 The research project is generously funded by Cornell University BRC Epigenomics Core Facility (RRID:SCR_021287), Penn State Institute for Computational and Data Sciences (RRID:SCR_025154) and Penn State University Center for Applications of Artificial Intelligence and Machine Learning to Industry Core Facility (RRID:SCR_022867).
 
 ## Contact
-For questions or issues, please contact vinaysmathew@psu.edu
+For questions or issues, please contact Vinay S Mathew - vinaysmathew@psu.edu
