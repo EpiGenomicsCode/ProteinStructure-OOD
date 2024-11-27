@@ -3,7 +3,7 @@
 export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
 
 export ALPHAFOLD_BASE="/path/to/alphafold"
-export ALPHAFOLD_DB="${ALPHAFOLD_BASE}/alphafold_2.3_db"
+export ALPHAFOLD_DB="${ALPHAFOLD_BASE}/alphafold_databases"
 
 export CURRENT_DATE=$(date +"%Y%m%d_%H%M%S")
 export RUN_DIR="${WORKINGDIR}/run_${CURRENT_DATE}"
