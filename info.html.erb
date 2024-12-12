@@ -132,10 +132,10 @@
           end
         end
       elsif session_type == 'AlphaFold 3'
-        log_dir = "#{run_dir}/logs/#{run_id}"
+        log_dir = "#{run_dir}/logs"
   
-        cpu_log = "#{log_dir}/cpu_job_#{run_id}.log"
-        gpu_log = "#{log_dir}/gpu_job_#{run_id}.log"
+        cpu_log = "#{log_dir}/cpu_job_.log"
+        gpu_log = "#{log_dir}/gpu_job_.log"
         
         if File.exist?(cpu_log)
           status[:cpu_log_content] = File.read(cpu_log)
