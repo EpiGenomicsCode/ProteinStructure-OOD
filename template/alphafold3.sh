@@ -105,6 +105,7 @@ singularity exec --nv \\
     --bind ${STRUCT}:/root/af_output \\
     --bind ${ALPHAFOLD3_WEIGHTS}:/root/models \\
     --bind ${ALPHAFOLD3_DB}:/root/public_databases \\
+    --bind "${SESSIONDIR}/singularity_af3/app/alphafold/run_alphafold.py:/app/alphafold/run_alphafold.py" \
     ${ALPHAFOLD3_CONTAINER} \\
     python3 /app/alphafold/run_alphafold.py \\
     --json_path=${GENERATED_JSON_FILE} \\
