@@ -52,20 +52,20 @@ This project provides a web-based interface for running protein structure predic
 
 ### Database Setup
 Both AlphaFold versions require genetic databases that must be set up before using the app:
-- AlphaFold 2: Download using script from [AlphaFold repository](https://github.com/google-deepmind/alphafold)
-- AlphaFold 3: Additional databases required for DNA/RNA/ligand predictions
+- AlphaFold 2: Download using script from [AlphaFold 2 repository](https://github.com/google-deepmind/alphafold)
+- AlphaFold 3: Additional databases required. Setup instructions available [here](https://github.com/google-deepmind/alphafold3/blob/main/docs/installation.md)
 
 ### Singularity Containers
 The app uses Singularity containers for execution:
 - AlphaFold 2: Download from [Sylabs](https://cloud.sylabs.io/library/prehensilecode/alphafold_singularity/alphafold)
-- AlphaFold 3: Requires official container from Google (subject to terms of use)
+- AlphaFold 3: Requires official container from Google (subject to terms of use). Weights needed for running AlphaFold 3 have to be requested from Google [here](https://docs.google.com/forms/d/e/1FAIpQLSfWZAgo1aYk0O4MuAXZj8xRQ8DafeFJnldNOnh_13qAx2ceZw/viewform)
 
 ## Installation
 
 1. Clone this repository into your Open OnDemand apps directory
 2. Configure paths in `template/alphafold_env.sh`
 3. Ensure all required databases are properly set up
-4. Verify GPU compute capabilities (minimum 8.0 for AlphaFold 3)
+4. Verify GPU compute capabilities.
 
 ## Usage
 
@@ -146,7 +146,7 @@ Common issues and solutions:
    - Verify GPU allocation
    - Check memory requirements
    - Review GPU phase logs
-   - For AlphaFold 3: Ensure GPU compute capability ≥ 8.0
+   - For AlphaFold 3: Ensure GPU compute availability. 
 
 ## License
 This project is licensed under the MIT License.
