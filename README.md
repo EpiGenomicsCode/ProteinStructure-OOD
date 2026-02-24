@@ -19,7 +19,7 @@ with the GPU job submitted as a dependency of the CPU job.
 
 ## Screenshots
 
-| Structure prediction form (left)                          | JSON Input & Terms of Service agreement                         |
+| Model Selection, Parition & Working Directory  (left)                          | JSON Input & Terms of Service agreement                         |
 |--------------------------------------------------|--------------------------------------------------|
 | ![AlphaFold 2 input form](docs/left.png)         | ![AlphaFold 3 input form](docs/right.png)        |
 
