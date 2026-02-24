@@ -27,8 +27,9 @@ with the GPU job submitted as a dependency of the CPU job.
 
 ### Progress after job submission
 
-|-----------------------|------------------------|
-| ![Progress left](docs/progress_left.jpeg)  | ![Progress right](docs/progress_right.jpeg) |
+| | |
+|---|---|
+| ![Progress left](docs/progress_left.jpeg) | ![Progress right](docs/progress_right.jpeg) |
 
 ## Supporting Materials
 
