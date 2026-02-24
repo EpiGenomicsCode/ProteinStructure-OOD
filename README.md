@@ -1,7 +1,27 @@
 # ICDS-Roar-OOD Protein Structure Prediction
 
-## Description
-This project provides a web-based interface for running protein structure prediction jobs using AlphaFold 2 and AlphaFold 3 on the ICDS Roar cluster via Open OnDemand v3. The app simplifies the process of submitting and monitoring AlphaFold jobs by providing a user-friendly interface and automated job management.
+## Overview
+
+An [Open OnDemand](https://openondemand.org/) Batch Connect app that provides a
+web-based interface for running protein structure prediction jobs using AlphaFold 2
+and AlphaFold 3 on the ICDS Roar cluster. The app simplifies the process of
+submitting and monitoring AlphaFold jobs by providing a user-friendly interface and
+automated job management.
+
+This app uses the Batch Connect `basic` template with Slurm. It executes a two-phase
+workflow: a CPU phase for MSA generation and a GPU phase for structure prediction,
+with the GPU job submitted as a dependency of the CPU job.
+
+- **Upstream project:** [AlphaFold](https://github.com/google-deepmind/alphafold) by DeepMind
+- **Batch Connect template:** `basic`
+- **Scheduler:** Slurm
+- **Container runtime:** Singularity
+
+## Screenshots
+
+| Structure prediction form (left)                          | JSON Input & Terms of Service agreement                         |
+|--------------------------------------------------|--------------------------------------------------|
+| ![AlphaFold 2 input form](docs/left.png)         | ![AlphaFold 3 input form](docs/right.png)        |
 
 ## Supporting Materials
 
@@ -68,6 +88,12 @@ This project provides a web-based interface for running protein structure predic
 
 ## Prerequisites
 
+### Open OnDemand
+
+<!-- TODO: Specify the minimum OOD version this app has been tested with -->
+- Slurm scheduler
+- Has been tested to work with OOD v3 & v4
+
 ### Database Setup
 Both AlphaFold versions require genetic databases that must be set up before using the app:
 - AlphaFold 2: Download using script from [AlphaFold 2 repository](https://github.com/google-deepmind/alphafold)
@@ -84,6 +110,35 @@ The app uses Singularity containers for execution:
 2. Configure paths in `template/alphafold_env.sh`
 3. Ensure all required databases are properly set up
 4. Verify GPU compute capabilities.
+
+### Configure for your site
+
+Edit `form.yml.erb` and update these values for your cluster:
+
+| Attribute          | ICDS Default       | Change to                          |
+|--------------------|--------------------|------------------------------------|
+| `cluster`          | `rc`               | Your cluster name                  |
+| `auto_accounts`    | (dynamic)          | GPU account selection for your site |
+| `auto_queues`      | (dynamic)          | Queue/partition for your site       |
+| `working_directory`| `/scratch/<user>`  | Default scratch path on your site  |
+
+In `before.sh.erb`, the app sources `alphafold_env.sh` to set environment variables
+for database paths, container paths, and working directories. You must configure this
+file for your site.
+
+## Configuration
+
+### form.yml attributes
+
+| Attribute            | Widget        | Description                                          | Default               |
+|----------------------|---------------|------------------------------------------------------|-----------------------|
+| `session_type`       | select        | Prediction engine (AlphaFold 2 or AlphaFold 3)      | `AlphaFold 2`         |
+| `auto_accounts`      | select        | GPU account for job submission                       | (dynamic)             |
+| `auto_queues`        | select        | Queue/partition for job submission                   | (dynamic)             |
+| `working_directory`  | path_selector | Output directory (scratch space recommended)          | `/scratch/<user>`     |
+| `protein_sequence`   | text_area     | Input sequence (FASTA for AF2, JSON for AF3)         | (empty)               |
+| `agree_terms`        | check_box     | Accept Google's Terms of Service (AF3 only)          | unchecked             |
+| `bc_email_on_started`| check_box     | Email notification on job start/completion           | unchecked             |
 
 ## Usage
 
@@ -166,8 +221,22 @@ Common issues and solutions:
    - Review GPU phase logs
    - For AlphaFold 3: Ensure GPU compute availability. 
 
+
+## Contributing
+
+For bugs or feature requests,
+[open an issue](https://github.com/EpiGenomicsCode/ProteinStructure-OOD/issues).
+
+## References
+
+- [AlphaFold 2](https://github.com/google-deepmind/alphafold) -- protein structure prediction by DeepMind
+- [AlphaFold 3](https://github.com/google-deepmind/alphafold3) -- latest version with protein-ligand complex support
+- [Open OnDemand](https://openondemand.org/) -- the HPC portal framework
+- [OOD Batch Connect app development docs](https://osc.github.io/ood-documentation/latest/app-development.html)
+
 ## License
-This project is licensed under the MIT License.
+
+MIT (see LICENSE file)
 
 ## Acknowledgements
 - AlphaFold by DeepMind Technologies Limited
