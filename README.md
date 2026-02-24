@@ -17,11 +17,18 @@ with the GPU job submitted as a dependency of the CPU job.
 - **Scheduler:** Slurm
 - **Container runtime:** Singularity
 
-## Screenshots
+## How it looks
 
-| Model Selection, Parition & Working Directory  (left)                          | JSON Input & Terms of Service agreement                         |
-|--------------------------------------------------|--------------------------------------------------|
-| ![AlphaFold 2 input form](docs/left.png)         | ![AlphaFold 3 input form](docs/right.png)        |
+### Launch form
+
+| Model selection, partition & working directory (left) | JSON input & terms of service (right) |
+|-------------------------------------------------------|---------------------------------------|
+| ![Form left](docs/left.png)                            | ![Form right](docs/right.png)         |
+
+### Progress after job submission
+
+|-----------------------|------------------------|
+| ![Progress left](docs/progress_left.jpeg)  | ![Progress right](docs/progress_right.jpeg) |
 
 ## Supporting Materials
 
