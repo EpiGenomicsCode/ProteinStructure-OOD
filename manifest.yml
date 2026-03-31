@@ -1,7 +1,7 @@
 ---
 name: Protein Structure Prediction
 category: Interactive Apps
-subcategory: Custom Applications
+subcategory: Protein Engineering
 role: batch_connect
 metadata:
   pintype: Interactive Apps
